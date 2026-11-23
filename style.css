@@ -1,0 +1,362 @@
+
+* {
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --paper: #f4ead9;
+    --wine: #772d36;
+    --ink: #49382f;
+    --muted: #95775e;
+    --gold: #c49a73;
+  }
+  
+  body {
+    margin: 0;
+    background: #e7d8c4;
+    color: var(--ink);
+    font-family: "Cormorant Garamond", serif;
+  }
+  
+  .screen {
+    min-height: 100vh;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hidden {
+    display: none !important;
+  }
+  
+  .lock-screen {
+    background: linear-gradient(135deg, #e9ddca, #d7c1a5);
+  }
+  
+  .lock-card,
+  .paper,
+  .book-cover {
+    width: min(100%, 700px);
+    padding: 45px 35px;
+    background-color: var(--paper);
+    background-image: repeating-linear-gradient(
+      transparent 0px,
+      transparent 31px,
+      rgba(120, 90, 60, 0.04) 32px
+    );
+    border: 1px solid #d3bda2;
+    box-shadow: 0 15px 45px #59452f20;
+    text-align: center;
+    border-radius: 3px;
+  }
+  
+  .lock-card {
+    max-width: 450px;
+  }
+  
+  .book-cover {
+    border: 6px double #a17a56;
+    padding: 60px 35px;
+  }
+  
+  .small-label {
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-size: 12px;
+  }
+  
+  h1 {
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(36px, 7vw, 64px);
+    font-weight: normal;
+    color: var(--wine);
+    margin: 18px 0;
+  }
+  
+  h2 {
+    font-family: "DM Serif Display", serif;
+    font-size: 32px;
+    font-weight: normal;
+    color: var(--wine);
+  }
+  
+  .script {
+    font-family: "Parisienne", cursive;
+    font-size: 30px;
+    color: var(--wine);
+  }
+  
+  .edition {
+    margin: 28px 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+  
+  .cover-heart {
+    color: var(--wine);
+    font-size: 40px;
+    margin: 30px 0;
+  }
+  
+  input {
+    display: block;
+    width: 100%;
+    margin: 25px 0 15px;
+    padding: 14px;
+    border: 1px solid #c6a889;
+    background: #fffaf2;
+    font-family: inherit;
+    font-size: 18px;
+    text-align: center;
+    outline-color: var(--wine);
+  }
+  
+  button {
+    cursor: pointer;
+    border: 1px solid var(--wine);
+    background: var(--wine);
+    color: #fff7e9;
+    padding: 12px 20px;
+    font-family: inherit;
+    font-size: 17px;
+    transition: 0.25s;
+  }
+  
+  button:hover {
+    background: #934a52;
+    transform: translateY(-1px);
+  }
+  
+  #errorMessage {
+    color: #a13e45;
+    font-size: 15px;
+  }
+  
+  .subtitle {
+    color: var(--muted);
+    font-size: 20px;
+    margin-bottom: 28px;
+  }
+  
+  .chapter {
+    width: 100%;
+    margin: 8px 0;
+    display: flex;
+    justify-content: space-between;
+    background: transparent;
+    color: var(--ink);
+    border: none;
+    border-bottom: 1px solid #d8c4a9;
+    text-align: left;
+    font-size: 21px;
+  }
+  
+  .chapter:hover {
+    background: #eadbc7;
+  }
+  
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 35px;
+  }
+  
+  .navigation button {
+    font-size: 15px;
+  }
+  
+  
+.heart-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin: 30px auto;
+  }
+  
+  .heart-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+  
+  
+  /* Heart seals */
+  .heart-stamp {
+    border: none;
+    padding: 0;
+    background: transparent;
+    color: var(--wine);
+    font-size: 44px;
+    line-height: 1;
+    position: relative;
+    transition: transform 0.2s;
+    filter: drop-shadow(0 3px 2px #6b342333);
+  }
+  
+  .heart-stamp:hover {
+    background: transparent;
+    transform: scale(1.18) rotate(-5deg);
+    color: #a94b58;
+  }
+  
+  .heart-stamp.opened {
+    color: #b68d83;
+  }
+  
+  .heart-stamp span {
+    position: absolute;
+    font-size: 12px;
+    color: #fff4e7;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+  
+  .memory-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .memory-card {
+    background: #fffaf1;
+    padding: 12px;
+    box-shadow: 0 5px 12px #503a2512;
+    transform: rotate(-1deg);
+  }
+  
+  .memory-card:nth-child(even) {
+    transform: rotate(1deg);
+  }
+  
+  .memory-card p {
+    font-size: 18px;
+  }
+  
+  .photo-placeholder {
+    height: 180px;
+    display: grid;
+    place-items: center;
+    background: #e7d6bd;
+    color: #987d61;
+    font-size: 15px;
+  }
+  
+  .letter-paper {
+    text-align: left;
+  }
+  
+  .letter-text {
+    font-size: 22px;
+    line-height: 1.65;
+  }
+  
+  .signature {
+    text-align: right;
+    margin-top: 35px;
+  }
+  
+  .last-page {
+    line-height: 1.8;
+  }
+  
+  .last-page p {
+    font-size: 22px;
+  }
+  
+  /* Promise popup */
+  .modal {
+    position: fixed;
+    inset: 0;
+    background: #2c1e1ebf;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 100;
+  }
+  
+  .modal-card {
+    position: relative;
+    background: var(--paper);
+    padding: 45px 30px;
+    width: min(100%, 480px);
+    text-align: center;
+    border: 2px solid #c4a27d;
+    animation: appear 0.3s ease;
+  }
+  
+  .modal-card p:not(.small-label) {
+    font-size: 22px;
+    line-height: 1.6;
+  }
+  
+  .close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: transparent;
+    color: var(--wine);
+    border: none;
+    font-size: 30px;
+    padding: 2px 10px;
+  }
+  
+  .close:hover {
+    background: transparent;
+  }
+  
+  @keyframes appear {
+    from {
+      opacity: 0;
+      transform: translateY(15px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  /* Phone layout */
+  @media (max-width: 500px) {
+    .screen {
+      padding: 12px;
+    }
+  
+    .paper,
+    .book-cover,
+    .lock-card {
+      padding: 28px 18px;
+    }
+  
+    .heart-grid {
+      gap: 12px;
+    }
+  
+    .heart-stamp {
+      font-size: 37px;
+    }
+  
+    .memory-grid {
+      gap: 10px;
+    }
+  
+    .photo-placeholder {
+      height: 130px;
+    }
+  
+    .letter-text {
+      font-size: 19px;
+    }
+  
+    .navigation button {
+      padding: 10px 12px;
+    }
+  }
+  
