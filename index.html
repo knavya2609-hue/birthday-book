@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Book</title>
+</head>
+<body>
+
+  <h1>A Birthday Book For You 🎂</h1>
+  <p>A little book filled with memories, promises and surprises.</p>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Book of You</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=DM+Serif+Display&family=Parisienne&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- PASSWORD PAGE -->
+  <section id="lockScreen" class="screen lock-screen">
+    <div class="lock-card">
+      <p class="small-label">A LITTLE SOMETHING FOR YOU</p>
+      <h1>Before you begin...</h1>
+      <p>This little book is meant only for you.</p>
+
+      <input id="passwordInput" type="password"
+             placeholder="Enter the secret word" />
+
+      <button onclick="unlockBook()">Unlock my book ♡</button>
+      <p id="errorMessage"></p>
+    </div>
+  </section>
+
+  <!-- BOOK COVER -->
+  <section id="coverScreen" class="screen hidden">
+    <div class="book-cover">
+      <p class="small-label">A COLLECTION OF LITTLE THINGS</p>
+      <h1>The Book<br>of You</h1>
+      <p class="script">Memories, letters & 22 promises</p>
+      <div class="cover-heart">♥</div>
+      <p class="edition">22nd Birthday Edition</p>
+      <button onclick="showPage('contents')">Open your book →</button>
+    </div>
+  </section>
+
+  <!-- CONTENTS -->
+  <section id="contents" class="screen hidden">
+    <div class="paper">
+      <p class="small-label">YOUR LITTLE BOOK</p>
+      <h1>Contents</h1>
+
+      <button class="chapter" onclick="showPage('promises')">
+        <span>01</span> Twenty-two promises <span>♡</span>
+      </button>
+
+      <button class="chapter" onclick="showPage('memories')">
+        <span>02</span> Little memories <span>♡</span>
+      </button>
+
+      <button class="chapter" onclick="showPage('letter')">
+        <span>03</span> A letter for you <span>♡</span>
+      </button>
+
+      <button class="chapter" onclick="showPage('lastPage')">
+        <span>04</span> The last page <span>♡</span>
+      </button>
+
+      <div class="navigation">
+        <button onclick="showPage('coverScreen')">← Cover</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 22 PROMISES -->
+  <section id="promises" class="screen hidden">
+    <div class="paper">
+      <p class="small-label">LITTLE THINGS I MEAN</p>
+      <h1>22 Promises</h1>
+      <p class="subtitle">Every heart holds a little letter.<br>Click one to open it.</p>
+
+      <div id="heartGrid" class="heart-grid"></div>
+
+      <div class="navigation">
+        <button onclick="showPage('contents')">← Contents</button>
+        <button onclick="showPage('memories')">Next →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEMORIES -->
+  <section id="memories" class="screen hidden">
+    <div class="paper">
+      <p class="small-label">A FEW MOMENTS I KEEP</p>
+      <h1>Little Memories</h1>
+      <p class="subtitle">Some moments deserve their own little page.</p>
+
+      <div class="memory-grid">
+        <div class="memory-card">
+          <div class="photo-placeholder">Add photo 1 here</div>
+          <p>One of my favourite memories.</p>
+        </div>
+        <div class="memory-card">
+          <div class="photo-placeholder">Add photo 2 here</div>
+          <p>A moment I wish I could replay.</p>
+        </div>
+        <div class="memory-card">
+          <div class="photo-placeholder">Add photo 3 here</div>
+          <p>Something that always makes me smile.</p>
+        </div>
+        <div class="memory-card">
+          <div class="photo-placeholder">Add photo 4 here</div>
+          <p>A little memory, just ours.</p>
+        </div>
+      </div>
+
+      <div class="navigation">
+        <button onclick="showPage('promises')">← Promises</button>
+        <button onclick="showPage('letter')">Next →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIRTHDAY LETTER -->
+  <section id="letter" class="screen hidden">
+    <div class="paper letter-paper">
+      <p class="small-label">A LETTER FROM ME TO YOU</p>
+      <h1>Dear You,</h1>
+
+      <div class="letter-text">
+        <p>Happy 22nd Birthday!</p>
+
+        <p>
+          I wanted to give you something a little different this year,
+          something you could open slowly, page by page,
+          and keep coming back to whenever you wanted.
+        </p>
+
+        <p>
+          I'm grateful for the conversations, the laughs,
+          the little moments and all the memories we have made.
+          I hope this new chapter of your life brings you
+          happiness, confidence, peace and so many reasons to smile.
+        </p>
+
+        <p>
+          I hope you always make room for your dreams,
+          take pride in how far you've come,
+          and remember that your happiness matters too.
+        </p>
+
+        <p>Happy Birthday, and welcome to Chapter 22.</p>
+      </div>
+
+      <p class="script signature">With love, always ♡</p>
+
+      <div class="navigation">
+        <button onclick="showPage('memories')">← Memories</button>
+        <button onclick="showPage('lastPage')">Next →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAST PAGE -->
+  <section id="lastPage" class="screen hidden">
+    <div class="paper last-page">
+      <p class="small-label">CHAPTER 22</p>
+      <h1>And the story continues...</h1>
+      <p>
+        This is not the end of the book.<br>
+        There are so many pages yet to be written.
+      </p>
+      <p class="script">Happy Birthday ♡</p>
+      <button onclick="showPage('coverScreen')">Close this book</button>
+    </div>
+  </section>
+
+  <!-- PROMISE LETTER POPUP -->
+  <div id="promiseModal" class="modal hidden">
+    <div class="modal-card">
+      <button class="close" onclick="closePromise()">×</button>
+      <p id="promiseNumber" class="small-label"></p>
+      <h2 id="promiseTitle"></h2>
+      <p id="promiseText"></p>
+      <button onclick="closePromise()">Back to my hearts ♡</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
